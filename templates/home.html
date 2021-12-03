@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block container %}
+<div class="container">
+<table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">Email</th>
+        <th scope="col">Address</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+    {% for d in data %}
+      <tr>
+        <th scope="row">{{d.id}}</th>
+        <td>{{d.name}}</td>
+        <td>{{d.email}}</td>
+        <td>{{d.address}}</td>
+        <td>
+      <a class="btn btn-primary" href="/update/{{d.id}}">Edit</a>
+      <a onclick="return confirm('Are you sure to delete ?')" class="btn btn-danger" href="/delete/{{d.id}}">Delete</a>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+{% endblock  %}
