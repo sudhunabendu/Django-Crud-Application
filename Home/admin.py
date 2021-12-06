@@ -1,6 +1,8 @@
 from django.contrib import admin
-# from .models import Page
-# # Register your models here.
+from .models import *
+# # # Register your models here.
+
+admin.site.register(User)
 
 # @admin.register(Page)
 # class PageAdmin(admin.ModelAdmin):

@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+
+{% block container %}
+
+
+{% if messages %}
+
+{% for msg in messages %}
+
+<p class="text-success">{{ msg }}</p>
+
+{% endfor %}
+
+{% endif %}
+
+
+<div class="container py-5">
+<form method="POST" action="{% url 'signup' %}">
+  {% csrf_token %}
+  {% comment %} <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">First Name</label>
+        <input type="text" class="form-control" name="fname" id="exampleInputEmail1" aria-describedby="emailHelp">
+        
+      </div> {% endcomment %}
+
+      <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">User Name</label>
+        <input type="text" class="form-control" name="username" id="exampleInputEmail1" aria-describedby="emailHelp">
+        
+      </div>
+      
+      {% comment %} <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Phone Number</label>
+        <input type="number" name="phone" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+        
+      </div>   {% endcomment %}
+
+
+    <div class="mb-3">
+      <label for="exampleInputEmail1" class="form-label">Email address</label>
+      <input type="email" class="form-control" name="email" id="exampleInputEmail1" aria-describedby="emailHelp">
+      
+    </div>
+
+
+    <div class="mb-3">
+      <label for="exampleInputPassword1" class="form-label">Password</label>
+      <input type="password" name="password" class="form-control" id="exampleInputPassword1">
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>
+
+
+<a href="{% url 'login' %}">Login Here!</a>
+
+
+{% endblock  %}
