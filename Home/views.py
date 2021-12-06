@@ -1,6 +1,6 @@
 from django.http.response import HttpResponse
 from django.shortcuts import render,redirect
-from .models import Crud,User
+from .models import Crud,User,Blog
 from django.contrib import messages
 from django.contrib.sessions.models import Session
 
@@ -42,7 +42,8 @@ def delete(request,id):
 
 def profile(request):
    if request.session.has_key('is_logged'):
-     return render(request,'profile.html')
+     fetch_data = Blog.objects.all()
+     return render(request,'profile.html',{'data':fetch_data})
    else:
      return redirect('login')
 
